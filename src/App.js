@@ -22,6 +22,7 @@ class App extends Component {
   componentDidMount() {
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
+        console.log('sdsds')
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot(snapShot => {
           this.setState({
