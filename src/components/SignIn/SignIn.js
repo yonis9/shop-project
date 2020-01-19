@@ -48,8 +48,10 @@ class SignIn extends Component {
                                value={password}
                                required />
 
-                    <CustomButton type='submit'>Sign In</CustomButton>
-                    <CustomButton onClick={signInWithGoogle}>Google</CustomButton>
+                    <div className='buttons'>
+                        <CustomButton type='submit'>Sign In</CustomButton>
+                        <CustomButton onClick={signInWithGoogle} isGoogleButton>Sign In With Google</CustomButton>
+                    </div>
                     
                 </form>
             </div>
