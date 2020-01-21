@@ -12,6 +12,8 @@
     font-family: 'Open Sans', sans-serif;
     border: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
     transition: 0.3s;
   
     &:hover {
@@ -30,5 +32,20 @@
             border: none;
         }
     }
+
+    &.inverted {
+      background-color: white;
+      color: black;
+      border: 1px solid black;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: black;
+        color: white;
+        border: none;
+        transition: 0.3s;
+      }
+    }
+
   }
   
