@@ -23,8 +23,8 @@ class SignIn extends Component {
         const { email, password } = this.state;
 
         try {
-           const a =  await auth.signInWithEmailAndPassword(email, password);
-console.log(a)
+          await auth.signInWithEmailAndPassword(email, password);
+
             this.setState({ email: '', password: ''});
         } catch(error) {
             console.log(error)
@@ -33,7 +33,7 @@ console.log(a)
 
     handleChange = (e) => {
         const { name, value} = e.target;
-        this.setState({[name]: value})
+        this.setState({ [name]: value })
     }
 
     render() {
