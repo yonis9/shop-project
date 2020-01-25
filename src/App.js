@@ -35,9 +35,6 @@ class App extends Component {
         setCurrentUser(userAuth)
       }
       
-
-
-      console.log(userAuth)
     })
   }
 
