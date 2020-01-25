@@ -6,7 +6,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase';
 import { currentUserSelector } from './redux/user/user-selectors'
 import { setCurrentUser } from './redux/user/user-actions'
 
-import HomePage from './pages/homepage/HomePage';
+import HomePage from './pages/HomePage/HomePage';
 import ShopPage from './pages/shop/ShopPage';
 import SigninAndSignupPage from './pages/signin-signup-page/SigninAndSignupPage';
 import CheckoutPage from './pages/checkout/CheckoutPage';
