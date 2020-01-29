@@ -6,7 +6,7 @@ import {
  } from './WithSpinner.styles';
 
  const WithSpinner = WrapedComponent => {
-    const Spinner = ({ isLoading, ... otherProps}) => {
+    const Spinner = ({ isLoading, ...otherProps}) => {
         return isLoading ? (
             <SpinnerOverlay>
                 <SpinnerContainer/>
