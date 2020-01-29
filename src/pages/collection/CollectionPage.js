@@ -8,11 +8,11 @@ import CollectionItem from '../../components/CollectionItem/CollectionItem';
 import './CollectionPage.scss';
 
 const CollectionPage = ({ collection }) => {
-   const { items } = collection
+   const { title, items } = collection
 
     return (
     <div className='collection-page'>
-        <div className='title'>{collection.title}</div>
+        <div className='title'>{title}</div>
         <div className='items'>
             {
                 items.map(item => <CollectionItem key={item.id} item={item} />)

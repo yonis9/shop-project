@@ -7,14 +7,15 @@ export const collectionsSelector = createSelector(
     shop => shop.collections
 );
 
+
+export const previewCollectionSelector = createSelector(
+    collectionsSelector,
+    collections => collections ? Object.values(collections) : []
+    )
+    
+    
 export const collectionSelector = collectionUrlParam =>
     createSelector(
         collectionsSelector,
-        collections => collections[collectionUrlParam]
-    );
-
-export const previewCollectionSelector = createSelector(
-    shopSelector,
-    shop => Object.values(shop.collections)
-)
-
+        collections => collections ? collections[collectionUrlParam] : null
+     );
