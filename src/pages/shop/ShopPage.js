@@ -15,7 +15,6 @@ class ShopPage extends Component {
         loading: true
     }
 
-    unSubscribeFromSnapshot = null
 
     componentDidMount() {
         const { fetchCollectionsStart } = this.props;

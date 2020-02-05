@@ -3,7 +3,6 @@ import "firebase/auth";
 import "firebase/firestore";
 
 
-
 const config = {
     apiKey: "AIzaSyCyaVhbp577CeD1CIqgs9L64JhV8K5D8Gg",
     authDomain: "crwn-db-b1df9.firebaseapp.com",
@@ -71,6 +70,16 @@ export const convertCollectionSnapshotToMap = (collections) => {
         acc[collection.title.toLowerCase()] = collection;
         return acc;
     }, {})
+}
+
+export const getCurrentUser = () => {
+    return new Promise((resolve, reject) => {
+        const unsubscribe = auth.onAuthStateChanged(userAuth => {
+            unsubscribe();
+            if (!userAuth) return;
+            resolve(userAuth)
+        }, reject)
+    })
 }
 
 
