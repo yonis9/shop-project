@@ -20,7 +20,11 @@ import userActionTypes from './user-types';
 
 export function* getSnapshotFromUserAuth(userAuth, additionalData) {
     try {
-        const userRef = yield createUserProfileDocument(userAuth, additionalData);
+        const userRef = yield call(
+            createUserProfileDocument, 
+            userAuth, 
+            additionalData
+            );
         const userSnapshot = yield userRef.get();
         yield put(
             signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
