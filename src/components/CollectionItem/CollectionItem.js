@@ -13,7 +13,7 @@ import {
  } from './CollectionItem.styles'
 
 const CollectionItem = ( { item, addItem }) => {
-    const { id, name, price, imageUrl } = item;
+    const { name, price, imageUrl } = item;
     return (
         <CollectionItemContainer>
             <BackgroundImage className='image'imageUrl={imageUrl}/>
