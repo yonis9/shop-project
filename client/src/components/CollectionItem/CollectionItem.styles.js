@@ -37,11 +37,10 @@ export const BackgroundImage = styled.div`
     background-image: url(${(props) => props.imageUrl})
 `
 export const CollectionFooterContainer = styled.div`
-    padding:  0 20px;
     width: 100%;
     height: 5%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-size: 18px;
 `
 
