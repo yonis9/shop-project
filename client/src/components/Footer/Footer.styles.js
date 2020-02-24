@@ -12,17 +12,22 @@ export const FooterContainer = styled.div`
 export const NavigationContainer = styled.div`
     height: 230px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 150px;
+    @media only screen and (max-width: 800px) {
+        padding: 0 20px;
+    }
+
 `;
 
 export const LeftNavigation = styled.ul`
     list-style: none;
-    width: 200px;
+    
 `;
 
 export const RightNavigation = styled.ul`
     list-style: none;
-    width: 200px;
+    
 `;
 
 
