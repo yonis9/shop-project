@@ -34,6 +34,11 @@ overflow: hidden;
   &:last-child {
     margin-left: 7.5px;
   }
+
+
+  @media only screen and (max-width: 800px) {
+    height: 200px;
+  }
 `
 
 export const BackgroundImage = styled.div`
@@ -56,6 +61,10 @@ export const ContentContainer = styled.div`
     background-color: white;
     opacity: 0.7;
     transition: 0.6s;
+
+    @media only screen and (max-width: 800px) {
+      padding: 0 18px;
+    }
 `
 
 export const TitleContainer = styled.h1`
@@ -63,6 +72,10 @@ export const TitleContainer = styled.h1`
     margin-bottom: 6px;
     font-size: 22px;
     color: #4a4a4a;
+
+    @media only screen and (max-width: 800px) {
+      font-size: 20px;
+    }
 `
 
 export const SubtitleContainer = styled.span`
