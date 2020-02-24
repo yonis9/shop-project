@@ -4,10 +4,10 @@ export const GlobalStyle = createGlobalStyle`
 
     body {
         font-family: 'Open Sans Condensed', sans-serif;
-        padding: 20px 40px;
+        padding: 20px 0 0 0;
 
         @media only screen and (max-width: 800px) {
-            padding: 10px;
+            padding: 10px 0 0 0;
         }
 
     }

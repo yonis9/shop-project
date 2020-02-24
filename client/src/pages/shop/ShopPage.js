@@ -7,7 +7,7 @@ import { fetchCollectionsStart } from '../../redux/shop/shop-actions';
 import CollectionOvereviewContainer from '../../components/CollectionOverview/CollectionOverview.container'
 import CollectionPageContainer from '../collection/CollectionPage.container';
 
-import './ShopPage.scss';
+import { ShopPageContainer } from './ShopPage.styles.js';
 
 
 const ShopPage = ({ fetchCollectionsStart, match } ) => {
@@ -18,14 +18,14 @@ const ShopPage = ({ fetchCollectionsStart, match } ) => {
 
 
     return  (
-        <div className='shop-page'>
+        <ShopPageContainer>
             <Route 
             exact path={`${match.path}`} 
             component={CollectionOvereviewContainer}/>
             <Route 
             path={`${match.path}/:collectionId`} 
             component={CollectionPageContainer} />
-        </div>
+        </ShopPageContainer>
     )
  }
 
