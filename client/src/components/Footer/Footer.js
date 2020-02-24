@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
 import { withRouter } from 'react-router-dom'
@@ -38,7 +39,10 @@ const Footer = ({history}) => {
             </RightNavigation>
         </NavigationContainer>
         <FooterEnd>
-            <P>Made with love by Yoni Sisso, ©2020</P>
+            <P><span>Made with </span>
+                 <FontAwesomeIcon icon={faHeart} /> 
+                 <span> by Yoni Sisso, ©2020</span>
+            </P>
             <IconContainer>
                 <LinkContainer href='https://www.linkedin.com/in/yonisisso/' target='_blank' rel="noopener noreferrer">
                     <FontAwesomeIcon icon={faLinkedin} size="3x"/>
