@@ -67,7 +67,7 @@ export const CollectionFooterContainer = styled.div`
 `
 
 export const NameContainer = styled.span`
-    width: 90%;
+    width: 80%;
     margin-bottom: 15px;
 `
 
