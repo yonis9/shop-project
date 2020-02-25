@@ -1,4 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect'
+
+import { currentUserSelector } from '../../redux/user/user-selectors'
+import { signOutStart } from '../../redux/user/user-actions'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
@@ -18,11 +23,7 @@ import {
     LinkContainer
 } from './Footer.styles';
 
-// import './Footer.scss';
-
-const Footer = ({history}) => {
-    
-    return(
+const Footer = ({history, currentUser, signOutStart}) => (
     <FooterContainer>
         <NavigationContainer>
             <LeftNavigation>
@@ -33,15 +34,20 @@ const Footer = ({history}) => {
                 <Navlink onClick={() => history.push('/shop/sneakers')}>Sneakers</Navlink>
             </LeftNavigation>
             <RightNavigation>
-                <Navlink onClick={() => history.push('/signin')}>Sign In</Navlink>
+                {
+                    currentUser ? 
+                    <Navlink onClick={signOutStart}>Sign Out</Navlink> :
+                    <Navlink onClick={() => history.push('/signin')}>Sign In</Navlink>
+                }
                 <Navlink onClick={() => history.push('/checkout')}>Checkout</Navlink>
                 
             </RightNavigation>
         </NavigationContainer>
         <FooterEnd>
-            <P><span>Made with </span>
-                 <FontAwesomeIcon icon={faHeart} /> 
-                 <span> by Yoni Sisso, ©2020</span>
+            <P>
+                <span>Made with </span>
+                <FontAwesomeIcon icon={faHeart} /> 
+                <span> by Yoni Sisso, ©2020</span>
             </P>
             <IconContainer>
                 <LinkContainer href='https://www.linkedin.com/in/yonisisso/' target='_blank' rel="noopener noreferrer">
@@ -53,6 +59,16 @@ const Footer = ({history}) => {
             </IconContainer>
         </FooterEnd>
     </FooterContainer>
-)}
+)
 
-export default withRouter(Footer);
+
+const mapStateToProps = createStructuredSelector({
+    currentUser: currentUserSelector
+})
+
+const mapDispatchToProps = dispatch => ({
+    signOutStart: () => dispatch(signOutStart())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Footer));
