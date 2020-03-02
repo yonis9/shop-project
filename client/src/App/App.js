@@ -6,6 +6,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { currentUserSelector } from '../redux/user/user-selectors';
 import { checkUserSession } from '../redux/user/user-actions'
 
+import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+import BrokenPage from '../components/BrokenPage/BrokenPage';
 import Header from '../components/Header/Header';
 import Spinner from '../components/Spinner/Spinner';
 import Footer from '../components/Footer/Footer';
@@ -29,14 +31,17 @@ const App = ({ checkUserSession, currentUser }) => {
     <div>
       <GlobalStyle />
       <Header />
-      <Switch>
-        <Suspense fallback={<Spinner />}>
-          <Route exact path='/' component={HomePage} />
-          <Route path='/shop' component={ShopPage} />
-          <Route exact path='/checkout' component={CheckoutPage} />
-          <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SigninAndSignupPage />)} />
-        </Suspense>
-      </Switch>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Switch>
+              <Route exact path='/' component={HomePage} />
+              <Route path='/shop' component={ShopPage} />
+              <Route exact path='/checkout' component={CheckoutPage} />
+              <Route exact path='/signin' render={() => currentUser ? (<Redirect to='/' />) : (<SigninAndSignupPage />)} />
+              <Route component={BrokenPage} />
+            </Switch>
+          </Suspense>
+        </ErrorBoundary>
       <Footer />
     </div>
   );
