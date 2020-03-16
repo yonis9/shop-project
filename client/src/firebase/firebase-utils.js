@@ -13,6 +13,23 @@ const config = {
     appId: "1:747630886993:web:4180c3b68fcf2006563870"
   }
 
+  export const getUserCartRef  = async (userId) => {
+      if (!userId) return;
+
+    const cartRef = firestore.collection(`carts`).where('userId', '==', userId);
+    const snapShot = await cartRef.get();
+    
+    if(snapShot.empty) {
+        const cartDocRef = firestore.collection('carts').doc();
+        await cartDocRef.set({ userId, cartItems: [] });
+        return cartDocRef;
+    }
+
+    return snapShot.docs[0].ref;
+
+  }
+
+
   export const createUserProfileDocument = async (userAuth, additionalData) => {
     if (!userAuth) return
 
