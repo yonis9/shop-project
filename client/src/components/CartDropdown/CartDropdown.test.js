@@ -34,7 +34,7 @@ describe('CartDropdown components', () => {
     it('should called hisotry.push when button is clicked', () =>  {
         wrapper.find('CartDropdownButton').simulate('click');
         expect(mockHistory.push).toHaveBeenCalled();
-        expect(mockDispatch).toHaveBeenCalledWith(toggleCartHidden())
+        expect(mockDispatch).toHaveBeenCalledWith(toggleCartHidden());
     })
 
     it('should render an equal number of CartItem components as the cartItems prop', () => {
@@ -50,6 +50,6 @@ describe('CartDropdown components', () => {
 
         const newWrapper = shallow(<CartDropdown {...mockProps} />);
 
-        expect(newWrapper.exists('EmptyMessageContainer')).toBe(true)
+        expect(newWrapper.exists('EmptyMessageContainer')).toBe(true);
     })
 })
