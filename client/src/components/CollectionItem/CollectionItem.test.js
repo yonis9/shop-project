@@ -3,24 +3,26 @@ import { shallow } from 'enzyme';
 
 import { CollectionItem } from './CollectionItem';
 
-let wrapper;
-let moackAddItem;
-const mockName = 'shirt';
-const mockUrl = 'shirts.com';
-const mockPrice = 15;
-
-const mockItem = {
-    name: mockName,
-    imageUrl: mockUrl,
-    price: mockPrice
-}
-
-beforeEach(() => {
-    moackAddItem = jest.fn();
-    wrapper = shallow(<CollectionItem item={mockItem} addItem={moackAddItem}/>)
-})
 
 describe('CollectionItem component', () => {
+
+    let wrapper;
+    let moackAddItem;
+    const mockName = 'shirt';
+    const mockUrl = 'shirts.com';
+    const mockPrice = 15;
+
+    const mockItem = {
+        name: mockName,
+        imageUrl: mockUrl,
+        price: mockPrice
+    }
+
+    beforeEach(() => {
+        moackAddItem = jest.fn();
+        wrapper = shallow(<CollectionItem item={mockItem} addItem={moackAddItem}/>)
+    })
+
     it('should rendered CollectionItem component', () => {
         expect(wrapper).toMatchSnapshot();
     });

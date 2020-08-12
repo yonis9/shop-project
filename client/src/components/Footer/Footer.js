@@ -23,7 +23,7 @@ import {
     LinkContainer
 } from './Footer.styles';
 
-const Footer = ({history, currentUser, signOutStart}) => (
+export const Footer = ({history, currentUser, signOutStart}) => (
     <FooterContainer>
         <NavigationContainer>
             <LeftNavigation>

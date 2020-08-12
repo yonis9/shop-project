@@ -40,6 +40,8 @@ export const Navlink = styled.li`
         }
 `;
 
+Navlink.displayName = 'Navlink';
+
 
 export const FooterEnd = styled.div`
     padding: 0 50px;
