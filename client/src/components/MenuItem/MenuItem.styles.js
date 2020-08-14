@@ -39,7 +39,9 @@ overflow: hidden;
   @media only screen and (max-width: 800px) {
     height: 200px;
   }
-`
+`;
+
+MenuItemContainer.displayName = 'MenuItemContainer';
 
 export const BackgroundImage = styled.div`
     height: 100%;
@@ -47,7 +49,9 @@ export const BackgroundImage = styled.div`
     background-size: cover;
     background-position: center;
     background-image: url(${(props) => props.imageUrl})
-`
+`;
+
+BackgroundImage.displayName = 'BackgroundImage';
 
 export const ContentContainer = styled.div`
     position: absolute;
@@ -76,9 +80,11 @@ export const TitleContainer = styled.h1`
     @media only screen and (max-width: 800px) {
       font-size: 20px;
     }
-`
+`;
+
+TitleContainer.displayName = 'TitleContainer';
 
 export const SubtitleContainer = styled.span`
     font-weight: lighter;
     font-size: 16px;
-`
+`;

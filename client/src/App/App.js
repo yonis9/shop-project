@@ -7,6 +7,7 @@ import { currentUserSelector } from '../redux/user/user-selectors';
 import { checkUserSession } from '../redux/user/user-actions'
 
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
+import ScrollToTop from '../components/ScrollToTop/ScrollToTop';
 import BrokenPage from '../components/BrokenPage/BrokenPage';
 import Header from '../components/Header/Header';
 import Spinner from '../components/Spinner/Spinner';
@@ -20,7 +21,7 @@ const SigninAndSignupPage = lazy(() => import('../pages/signin-signup-page/Signi
 const CheckoutPage = lazy(() => import('../pages/checkout/CheckoutPage'));
 
 
-const App = ({ checkUserSession, currentUser }) => {
+export const App = ({ checkUserSession, currentUser }) => {
 
   useEffect(() => {
     checkUserSession()
@@ -33,6 +34,7 @@ const App = ({ checkUserSession, currentUser }) => {
       <Header />
         <ErrorBoundary>
           <Suspense fallback={<Spinner />}>
+            <ScrollToTop />
             <Switch>
               <Route exact path='/' component={HomePage} />
               <Route path='/shop' component={ShopPage} />

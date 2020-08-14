@@ -9,8 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faLinkedin, faGithubSquare } from '@fortawesome/free-brands-svg-icons'
 
-import { withRouter } from 'react-router-dom'
-
 import {
     FooterContainer,
     NavigationContainer,
@@ -23,23 +21,23 @@ import {
     LinkContainer
 } from './Footer.styles';
 
-export const Footer = ({history, currentUser, signOutStart}) => (
+export const Footer = ({ currentUser, signOutStart}) => (
     <FooterContainer>
         <NavigationContainer>
             <LeftNavigation>
-                <Navlink onClick={() => history.push('/shop/mens')}>Mens</Navlink>
-                <Navlink onClick={() => history.push('/shop/womens')}>Womens</Navlink>
-                <Navlink onClick={() => history.push('/shop/hats')}>Hats</Navlink>
-                <Navlink onClick={() => history.push('/shop/jackets')}>Jackets</Navlink>
-                <Navlink onClick={() => history.push('/shop/sneakers')}>Sneakers</Navlink>
+                <Navlink to='/shop/mens'>Mens</Navlink>
+                <Navlink to='/shop/womens'>Womens</Navlink>
+                <Navlink to='/shop/hats'>Hats</Navlink>
+                <Navlink to='/shop/jackets'>Jackets</Navlink>
+                <Navlink to='/shop/sneakers'>Sneakers</Navlink>
             </LeftNavigation>
             <RightNavigation>
                 {
                     currentUser ? 
                     <Navlink onClick={signOutStart}>Sign Out</Navlink> :
-                    <Navlink onClick={() => history.push('/signin')}>Sign In</Navlink>
+                    <Navlink to='/signin'>Sign In</Navlink>
                 }
-                <Navlink onClick={() => history.push('/checkout')}>Checkout</Navlink>
+                <Navlink to='/checkout'>Checkout</Navlink>
                 
             </RightNavigation>
         </NavigationContainer>
@@ -71,4 +69,4 @@ const mapDispatchToProps = dispatch => ({
 })
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(withRouter(Footer));
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

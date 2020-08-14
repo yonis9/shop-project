@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom'
 
 export const FooterContainer = styled.div`
     background: #343A40;
@@ -20,20 +21,22 @@ export const NavigationContainer = styled.div`
 
 `;
 
-export const LeftNavigation = styled.ul`
-    list-style: none;
+export const LeftNavigation = styled.div`
+    display: flex;
+    flex-direction: column;
     
 `;
 
-export const RightNavigation = styled.ul`
-    list-style: none;
-    
+export const RightNavigation = styled.div`
+    display: flex;
+    flex-direction: column;
 `;
 
 
-export const Navlink = styled.li`
+export const Navlink = styled(Link)`
     cursor: pointer;
     padding: 5px;
+    color: #dae6ea;
 
      &:hover {
         color: white;

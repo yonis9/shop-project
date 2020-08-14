@@ -6,15 +6,10 @@ import { Footer } from './Footer.js';
 
 describe('Footer component', () => {
     let wrapper;
-    let mockHistory;
     let mockCurrentUser;
     let mockSignOutStart;
 
     beforeEach(() => {
-        mockHistory = {
-            push: jest.fn()
-        };
-
         mockCurrentUser = {
             id: 1,
             name: 'Yoni'
@@ -23,7 +18,6 @@ describe('Footer component', () => {
         mockSignOutStart = jest.fn();
 
        const mockProps = {
-            history: mockHistory,
             currentUser: mockCurrentUser,
             signOutStart: mockSignOutStart
         };
@@ -35,29 +29,25 @@ describe('Footer component', () => {
         expect(wrapper).toMatchSnapshot();
     });
 
-    it('should call history.push when clicked on LeftNavigation Navlinks', () => {
-        for (let i = 0; i < 5; i++) {
-            wrapper.find('Navlink').at(i).simulate('click');
-        }
-        
-        expect(mockHistory.push).toHaveBeenCalledTimes(5);
-    });
+    describe('if currentUser is present', () => {
+        it('should render sign out link', () => {
+            expect(wrapper.find('Navlink').at(5).text()).toBe('Sign Out');
+        });
 
-    it('should call signOutStart', () => {
-        wrapper.find('Navlink').at(5).simulate('click');
-        expect(mockSignOutStart).toHaveBeenCalled();
-    });
+        it('should call signOutStart when clicked on Sign Out', () => {
+            wrapper.find('Navlink').at(5).simulate('click');
+            expect(mockSignOutStart).toHaveBeenCalled();
+        });
+    })
 
-    it('should call history.push when user is sign out', () => {
+
+    it('should render sign in link when currentUse is null', () => {
         const mockProps2 = { 
-            history: mockHistory,
             signOutStart: mockSignOutStart,
             currentUser: null 
         };
 
         wrapper = shallow(<Footer {...mockProps2} />);
-
-        wrapper.find('Navlink').at(5).simulate('click');
-        expect(mockHistory.push).toHaveBeenCalled();
+        expect(wrapper.find('Navlink').at(5).text()).toBe('Sign In');
     })
 });

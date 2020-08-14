@@ -59,13 +59,14 @@ describe('Header component', () => {
         });
     });
 
-
+    describe('if hidden is true', () => {
         it('should not rendered CartDropdown', () => {
             expect(wrapper.exists(CartDropdown)).toBe(false);
         });
+    });
 
-    
 
+    describe('if hidden is false', () => {
         it('should rendered CartDropdown', () => {
             const mockProps2 = {
                 hidden: false,
@@ -74,8 +75,8 @@ describe('Header component', () => {
               };
     
             const newWrapper2 = shallow(<Header {...mockProps2} />);
-            
             expect(newWrapper2.exists(CartDropdown)).toBe(true);
         });
+    });
 
 });

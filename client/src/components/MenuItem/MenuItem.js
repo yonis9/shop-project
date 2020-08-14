@@ -11,7 +11,7 @@ import {
 
 
 
-const MenuItem = ({ title, imageUrl, size, linkUrl, match, history}) => (
+export const MenuItem = ({ title, imageUrl, size, linkUrl, match, history}) => (
   
     <MenuItemContainer size={size} onClick={() => history.push(`${match.url}${linkUrl}`)}>
         <BackgroundImage className='background-image' imageUrl={imageUrl}/>
