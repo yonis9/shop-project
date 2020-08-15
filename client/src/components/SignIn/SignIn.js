@@ -12,7 +12,7 @@ import {
     ButtonsContainer
 } from './SignIn.styles';
 
-const SignIn = ({ emailSignInStart, googleSignInStart }) => {
+export const SignIn = ({ emailSignInStart, googleSignInStart }) => {
     const [ credentials, setCredentials ] = useState({ email: '', password: '' })
 
     const { email, password } = credentials;
