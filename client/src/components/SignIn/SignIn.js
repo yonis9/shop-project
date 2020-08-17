@@ -19,10 +19,7 @@ export const SignIn = ({ emailSignInStart, googleSignInStart }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         emailSignInStart(email, password);
-
-
     }
 
     const handleChange = (e) => {
@@ -36,7 +33,7 @@ export const SignIn = ({ emailSignInStart, googleSignInStart }) => {
             <SignInTitle>I already have an account</SignInTitle>
             <span>Sign in with your email and password</span>
             
-            <form onSubmit={handleSubmit}>
+            <form id='form' onSubmit={handleSubmit}>
                 <FormInput handleChange={handleChange}
                             name='email'
                             type='email'

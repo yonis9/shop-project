@@ -29,5 +29,4 @@ describe('SignIn component', () => {
         expect(mockGoogleSignInStart).toHaveBeenCalled();
     });
 
-
 });
